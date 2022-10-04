@@ -30,18 +30,37 @@ public class PR0Array {
             if(array[i]==valor){
                 return i;
             }
+
         }
         return -1;
     }
 
-    //Es fa una cerca binaria del valor rebut per paràmetres. En cas de trobar-lo ens donarà l'índex, en cas
-    //contrari ens retorna un nombre negatiu. Per tant, si torna un nombre que no sigui negatiu, aquest serà
-    //l'index que retornam. En cas contrari retornam -1
+    /**
+   Métode que fa una cerca binària. Utilitza el valors alt(49) i baix(0) per calcular el centre (sumantlos
+    i dividint per 2). Llavors, s'utilitza el centre com a índex. Segons si el valor passat per paràmetres
+     és major o menor, es canvien els valors alts i baix per modificar el centre. El bucle avança fins que els
+     valors alt i baix són iguals, on es retorna -1 perquè no s'ha trobat el valor, o fins que el troba i retorna
+     l'índex.
+     **/
     public int binarySearch(int valor){
-        int index = Arrays.binarySearch(array,valor);
-        if(index>0){
-            return index;
+        int baix = 0;
+        int alt = CAPACITY-1;
+        int mitat =0;
+        int iteraccions = 1;
+
+        while(baix<=alt){
+            mitat = (baix+alt)/2;
+            if(array[mitat]==valor){
+                return mitat;
+            } else if (array[mitat]<valor) {
+                baix=mitat+1;
+            }
+            else if(array[mitat]>valor){
+                alt=mitat-1;
+            }
+            iteraccions++;
         }
+
         return -1;
     }
     public int[] getArray() {

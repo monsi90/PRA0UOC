@@ -19,8 +19,6 @@ public class PR0Stack {
     public void newStack() {
         stack = new StackArrayImpl<Integer>(CAPACITY);
     }
-
-
     public void fillStack() {
         //en aquest bucle canviam el valor de c per un integer i eliminam les comes. També s'introdueix el valor
         //de l'enter directament a la pila
@@ -28,14 +26,12 @@ public class PR0Stack {
             stack.push(c);
         }
     }
-
     public String clearAllStack() {
         StringBuilder sb = new StringBuilder();
         while (!stack.isEmpty())
             sb.append(stack.pop()).append(" ");
         return sb.toString();
     }
-
     //canviam el tipus de dada de Char a Integer.
     public Stack<Integer> getStack() {
         return this.stack;
